@@ -1,3 +1,4 @@
+import 'package:entertainment_app/movies.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,10 +32,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold) ;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Movies',
-      style: optionStyle,
-    ),
+    Movies(),
     Text(
       'Index 1: Sports',
       style: optionStyle,
@@ -57,9 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: const Text('Entertainment App'),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
