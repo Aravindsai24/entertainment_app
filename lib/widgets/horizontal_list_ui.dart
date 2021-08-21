@@ -1,3 +1,4 @@
+import 'package:entertainment_app/components/movie_view.dart';
 import 'package:entertainment_app/models/movie.dart';
 import 'package:flutter/material.dart';
 
@@ -16,20 +17,25 @@ class horizontal_list extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: movieList.length,
         itemBuilder: (context, index) {
-          return Container(
-            height: 180.0,
-            width: 100.0,
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            color: Colors.red,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Image.network(
-                  'https://image.tmdb.org/t/p/w500'+ movieList[index].poster_path,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MovieView(movieList[index].id.toString())),
+              );
+            },
+            child: Container(
+              height: 180.0,
+              width: 120.0,
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w500'+ movieList[index].poster_path,
+                loadingBuilder: (context, child, progress) => progress == null
+                    ? child
+                    : LinearProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
                 ),
-                Text(movieList[index].original_title)
-              ],
+                fit: BoxFit.fill,
+              ),
             ),
           );
         },

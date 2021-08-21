@@ -1,7 +1,7 @@
 import 'package:entertainment_app/models/movie.dart';
 import 'package:entertainment_app/widgets/horizontal_list_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:entertainment_app/services/fetch_movies.dart';
+import 'package:entertainment_app/services/fetch_movies_list.dart';
 
 class bestHorror extends StatefulWidget {
   final String mainTitle;
@@ -26,13 +26,13 @@ class _bestHorrorState extends State<bestHorror> {
   void initState() {
     super.initState();
     print("init state");
-    futureListMovies = fetchMovies(query);
+    futureListMovies = fetchMoviesList(query);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.0,
+      height: 180.0,
       decoration: BoxDecoration(
         border: Border.symmetric(horizontal: BorderSide(color: Colors.black,width: 4.0))
       ),
@@ -44,7 +44,9 @@ class _bestHorrorState extends State<bestHorror> {
           } else if(snapshot.hasError) {
 
           }
-          return CircularProgressIndicator();
+          return LinearProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+          );
         },
       ),
     );

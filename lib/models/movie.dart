@@ -5,6 +5,7 @@ class Movie {
   final String original_language;
   final String overview;
   final String release_date;
+  String? trailer_id;
 
   Movie({
     required this.id,
