@@ -4,9 +4,9 @@ import 'package:entertainment_app/Football/FootballMatch.dart';
 import 'FootballApi.dart';
 import 'PageBody.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyFootballApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

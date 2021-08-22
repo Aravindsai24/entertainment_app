@@ -1,3 +1,4 @@
+import 'package:entertainment_app/Football/matchstat.dart';
 import 'package:flutter/material.dart';
 import 'package:entertainment_app/Football/goalstat.dart';
 
@@ -13,7 +14,7 @@ Widget MatchTile(FootballMatch match) {
   return InkWell(
   child:Container(
     margin: EdgeInsets.symmetric(vertical: 12.0),
-    child: Flexible(
+    child: Expanded(
       child:Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,6 +59,6 @@ Widget MatchTile(FootballMatch match) {
         ),
       ],
     ),)
-  )
+  ),
   );
 }

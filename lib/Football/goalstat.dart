@@ -1,10 +1,10 @@
+import 'package:entertainment_app/Football/FootballMatch.dart';
 import 'package:flutter/material.dart';
 
-Widget goalStat(int expandedTime, int homeGoal, int awayGoal)  {
-  var homeLogo;
-  var home = homeGoal;
-  var away = awayGoal;
-  var elapsed = expandedTime;
+Widget goalStat(FootballMatch match)  {
+  var home = match.goal!.home;
+  var away = match.goal!.away;
+  var elapsed = match.fixture!.status.elapsedTime;
   if (home == null) home = 0;
   if (away == null) away = 0;
   if (elapsed == null) elapsed = 0;

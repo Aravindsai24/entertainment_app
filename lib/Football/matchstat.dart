@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+
 Widget teamStat(String team, String logoUrl, String teamName) {
   return Expanded(
     child: Column(
@@ -14,12 +15,10 @@ Widget teamStat(String team, String logoUrl, String teamName) {
         SizedBox(
           height: 10.0,
         ),
-        Expanded(
-          child: Image.network(
+      Image.network(
             logoUrl,
-            width: 54.0,
+            width: 40.0,
           ),
-        ),
         SizedBox(
           height: 10.0,
         ),

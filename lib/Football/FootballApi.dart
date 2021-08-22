@@ -4,15 +4,20 @@ import 'package:http/http.dart';
 import 'FootballMatch.dart';
 
 class FootballApi {
-  final  url = Uri.parse("https://v3.football.api-sports.io/fixtures?season=2020&league=39");
+  String? url;
+  void setSeason(String? season){
+    url="https://v3.football.api-sports.io/fixtures?$season=2020&league=39";
+  }
+
+
   static const headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
     //Always make sure to check the api key and the limit of a request in a free api
-    'x-rapidapi-key': "75f283c5b57231cb0e16694e36962f17"
+    'x-rapidapi-key': "c60b6e30365b0f0c0b8de20f60b2b02a"
   };
 
   Future<List<FootballMatch>> getAllMatches() async {
-    Response res = await get(url, headers: headers);
+    Response res = await get(Uri.parse(url!), headers: headers);
     var body;
     List<FootballMatch> matches=[];
     if (res.statusCode == 200) {
