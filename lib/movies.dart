@@ -13,25 +13,26 @@ class Movies extends StatefulWidget {
 }
 
 class _MoviesState extends State<Movies> {
+  String baseUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=d84ae5efcc27373a8b17dd3e1797eb1d';
   @override
   Widget build(BuildContext context) {
     return ListView(
       scrollDirection: Axis.vertical,
       children: <Widget>[
         Text("Popular Movies"),
-        PopularMovies("Popular Movies",'&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'),
+        PopularMovies("Popular Movies",baseUrl+'&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'),
         SizedBox.fromSize(size: Size.fromHeight(20.0),),
         Text("Best Dramas"),
-        bestDramas("Best Dramas",'&language=en-&sort_by=popularity.desc&with_genres=18&include_adult=false&include_video=false&page=1'),
+        bestDramas("Best Dramas",baseUrl+'&language=en-&sort_by=popularity.desc&with_genres=18&include_adult=false&include_video=false&page=1'),
         SizedBox.fromSize(size: Size.fromHeight(20.0),),
         Text("Best Action"),
-        bestAction("Best Action",'&language=en-&sort_by=popularity.desc&with_genres=28&include_adult=false&include_video=false&page=1'),
+        bestAction("Best Action",baseUrl+'&language=en-&sort_by=popularity.desc&with_genres=28&include_adult=false&include_video=false&page=1'),
         SizedBox.fromSize(size: Size.fromHeight(20.0),),
         Text("Best Romance"),
-        bestRomance("Best Romance",'&language=en-&sort_by=popularity.desc&with_genres=10749&include_adult=false&include_video=false&page=1'),
+        bestRomance("Best Romance",baseUrl+'&language=en-&sort_by=popularity.desc&with_genres=10749&include_adult=false&include_video=false&page=1'),
         SizedBox.fromSize(size: Size.fromHeight(20.0),),
         Text("Best Horror"),
-        bestHorror("Best Horror",'&language=en-&sort_by=popularity.desc&with_genres=27&include_adult=false&include_video=false&page=1'),
+        bestHorror("Best Horror",baseUrl+'&language=en-&sort_by=popularity.desc&with_genres=27&include_adult=false&include_video=false&page=1'),
       ],
     );
   }

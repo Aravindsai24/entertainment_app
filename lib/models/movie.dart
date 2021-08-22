@@ -6,6 +6,8 @@ class Movie {
   final String overview;
   final String release_date;
   String? trailer_id;
+  List<String>? genres;
+  String? tagline;
 
   Movie({
     required this.id,
