@@ -1,4 +1,5 @@
 import 'package:entertainment_app/movies.dart';
+import 'package:entertainment_app/widgets/search_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          tooltip: 'Search',
+          icon: Icon(Icons.search),
+          onPressed: () {
+            Navigator.push(
+                context,
+              MaterialPageRoute(builder: (context) => SearchWidget()),
+            );
+          },
+        ),
         title: const Text('Entertainment App'),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
