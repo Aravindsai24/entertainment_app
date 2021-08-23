@@ -1,7 +1,10 @@
 import 'package:entertainment_app/movies.dart';
 import 'package:entertainment_app/widgets/search_widget.dart';
+import 'package:entertainment_app/Football/seasonSelect.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'Football/main.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: MyStatefulWidget(),
     );
@@ -32,12 +36,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold) ;
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Movies(),
-    Text(
-      'Index 1: Sports',
-      style: optionStyle,
-    ),
+    seasonSelect(),
     Text(
       'Index 2: News',
       style: optionStyle,
