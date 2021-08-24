@@ -1,11 +1,11 @@
-import 'package:entertainment_app/Football/matchstat.dart';
+import 'package:path/path.dart';
 import 'package:flutter/material.dart';
-import 'package:entertainment_app/Football/goalstat.dart';
+import '../../prototype/FootballMatch.dart';
+import 'FootballMatchtwo.dart';
+import 'matchScreen.dart';
 
-import 'FootballMatch.dart';
 
-
-Widget MatchTile(FootballMatch match) {
+Widget MatchTile(FootballMatchtwo match,BuildContext context) {
   var homeGoal = match.goal!.home;
   var awayGoal = match.goal!.away;
   if (homeGoal == null) homeGoal = 0;
@@ -13,46 +13,51 @@ Widget MatchTile(FootballMatch match) {
 
   return InkWell(
   child:Container(
-    margin: EdgeInsets.symmetric(vertical: 12.0),
+    height: 50,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey, //(x,y)
+            blurRadius: 6.0,
+          ),
+        ],
+      ),
+    margin: new EdgeInsets.only(top:5),
+    padding: EdgeInsets.symmetric(horizontal: 40.0,vertical: 10),
     child: Expanded(
       child:Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Icon(Icons.sports_soccer),
         Expanded(
           child: Text(
-            match.home!.name,
+            match.homeTeam!.teamname.toString(),
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 14.0,
             ),
           ),
-        ),
-        Image.network(
-          match.home!.logoUrl,
-          width: 36.0,
         ),
         Expanded(
           child: Text(
             "$homeGoal - $awayGoal",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 16.0,
             ),
           ),
         ),
-        Image.network(
-          match.away!.logoUrl,
-          width: 36.0,
-        ),
+        Icon(Icons.sports_soccer),
         Expanded(
           child: Text(
-            match.away!.name,
+            match.awayTeam!.teamname.toString(),
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 14.0,
             ),
           ),
@@ -60,5 +65,9 @@ Widget MatchTile(FootballMatch match) {
       ],
     ),)
   ),
+    onTap:(){
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => matchScreen(match)));
+    },
   );
 }

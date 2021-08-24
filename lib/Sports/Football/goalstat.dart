@@ -1,35 +1,36 @@
-import 'package:entertainment_app/Football/FootballMatch.dart';
+
 import 'package:flutter/material.dart';
 
-Widget goalStat(FootballMatch match)  {
+import 'FootballMatchtwo.dart';
+
+Widget goalStat(FootballMatchtwo match)  {
   var home = match.goal!.home;
   var away = match.goal!.away;
-  var elapsed = match.fixture!.status.elapsedTime;
+  var status = match.matchDetails!.Status;
   if (home == null) home = 0;
   if (away == null) away = 0;
-  if (elapsed == null) elapsed = 0;
   return Expanded(
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          "${elapsed}'",
+    Padding(padding:new EdgeInsets.symmetric(vertical: 60),
+    child:Text(
+          "${status}",
           style: TextStyle(
-            fontSize: 30.0,
+            fontSize: 15.0,
           ),
         ),
-        Expanded(
-          child: Center(
-            child: Text(
+    ),
+        SizedBox(height: 10,),
+        Text(
               "${home} - ${away}",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 36.0,
+                fontSize: 30.0,
               ),
             ),
-          ),
-        )
+
+
       ],
     ),
   );

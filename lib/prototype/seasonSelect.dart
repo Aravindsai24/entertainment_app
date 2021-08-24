@@ -1,6 +1,6 @@
-import 'package:entertainment_app/Football/FootballApi.dart';
-import 'package:entertainment_app/Football/main.dart';
 import 'package:flutter/material.dart';
+
+import '../Sports/Football/main.dart';
 
 class seasonSelect extends StatefulWidget {
   const seasonSelect({Key? key}) : super(key: key);
@@ -55,7 +55,8 @@ class _seasonSelectState extends State<seasonSelect> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () {
-                    FootballApi().setSeason(dropDownValue);
+                    //FootballApi().setSeason(dropDownValue);
+                    print(dropDownValue);
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyFootballApp()));
                   },
